@@ -4,6 +4,8 @@ body {
     padding: 10px;
 }
 
+/*** MOBILE ***/
+
 /* Header area styles */
 header {
     background: black;
@@ -13,20 +15,17 @@ header {
 header > .top-container {
     background: grey;  
     padding: 10px;
-    display: flex;
 }
 
 header > .top-container > .header-side-box {
     background: red;
     height: 10px; /* we only give this height because there is no content for the moment */
-    flex: 1;
 }
 
 header > .top-container > .header-middle-box {
     background: red;
     height: 10px; /* we only give this height because there is no content for the moment */
-    margin: 0 10px; /* margin-left: 10px and margin-right: 10px */
-    flex: 4;
+    margin: 10px 0; /* margin-top = 10px and margin-bottom = 10px */
 }
 
 header > .bottom-container {
@@ -41,95 +40,40 @@ header > .bottom-container > .header-main-box {
 }
 
 /* Main area styles */
-
-/* Tablet */
-@media only screen and (max-width: 768px) {
-    main {
-        margin-top: 10px;
-        padding: 10px;
-        background: yellow;
-    }
+main {
+    margin-top: 10px;
+    padding: 10px;
+    background: yellow;
+}
     
-    main > .main-container {
-        background: grey;
-        padding: 10px;
-        /* the main container has a grid of 2 columns separated by 10px */
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 10px;
-    }
-
-    main > .main-container > .main-box {
-        background: blue;
-        height: 10px; /* we only give this height because there is no content for the moment */
-    }
-
-    main > .main-container > .bottom-main-box {
-        background: steelblue;
-        height: 10px; /* we only give this height because there is no content for the moment */
-        grid-column: 1 / span 2; /* the bottom box occupies 2 columns */
-    }
-
-    main > .side-container {
-        background: red;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        margin-top: 10px;
-    }
-
-    main > .side-container > .side-box {
-        background: khaki;
-        height: 10px; /* we only give this height because there is no content for the moment */
-    }
-    
+main > .main-container {
+    background: grey;
+    padding: 10px;
 }
 
-/* Desktop */
-@media only screen and (min-width: 768px) {
-    main {
-        margin-top: 10px;
-        padding: 10px;
-        background: black;
-        display: flex;
-    }
-    
-    main > .main-container {
-        background: grey;
-        padding: 10px;
-        flex: 2;
-        /* the main container has a grid of 2 columns separated by 10px */
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 10px;
-    }
+main > .main-container > .main-box {
+    background: blue;
+    height: 10px; /* we only give this height because there is no content for the moment */
+    margin-bottom: 10px;
+}
 
-    main > .main-container > .main-box {
-        background: blue;
-        height: 10px; /* we only give this height because there is no content for the moment */
-    }
+main > .main-container > .bottom-main-box {
+    background: steelblue;
+    height: 10px; /* we only give this height because there is no content for the moment */
+}
 
-    main > .main-container > .bottom-main-box {
-        background: steelblue;
-        height: 10px; /* we only give this height because there is no content for the moment */
-        grid-column: 1 / span 2; /* the bottom box occupies 2 columns */
-    }
+main > .side-container {
+    background: red;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
-    main > .side-container {
-        background: red;
-        padding: 10px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        margin-left: 10px;
-    }
-
-    main > .side-container > .side-box {
-        background: khaki;
-        height: 10px; /* we only give this height because there is no content for the moment */
-    }
+main > .side-container > .side-box {
+    background: khaki;
+    height: 10px; /* we only give this height because there is no content for the moment */
 }
 
 /* Footer area styles*/
@@ -144,5 +88,70 @@ footer .footer-container {
     height: 10px; /* we only give this height because there is no content for the moment */
     
 }
+
+
+/*** TABLET variations ***/
+@media only screen and (min-width: 600px) {
+    
+    /* Header area variations */
+    header > .top-container {
+        display: flex;
+    }
+
+    header > .top-container > .header-side-box {
+        flex: 1;
+    }
+
+    header > .top-container > .header-middle-box {
+        margin: 0 10px; /* margin-left: 10px and margin-right: 10px */
+        flex: 4;
+    }
+    
+    /* Main area variations */
+    main > .main-container {
+        /* the main container has a grid of 2 columns separated by 10px */
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+    }
+
+    main > .main-container > .main-box {
+        margin-bottom: 0;
+    }
+
+    main > .main-container > .bottom-main-box {
+        grid-column: 1 / span 2; /* the bottom box occupies 2 columns */
+    }
+    
+}
+
+/*** DESKTOP variations ***/
+@media only screen and (min-width: 768px) {
+    /* Main area variations */
+    main {
+        background: black; /* the main area changes in color */
+        display: flex;
+    }
+    
+    main > .main-container {
+        flex: 2;
+    }
+
+    main > .main-container > .main-box {
+        margin-bottom: 0;
+    }
+
+    main > .main-container > .bottom-main-box {
+        grid-column: 1 / span 2; /* the bottom box occupies 2 columns */
+    }
+    
+    main > .side-container {
+        flex: 1;
+        margin-top: 0;
+        margin-left: 10px;
+    }
+}
+
+
 
 

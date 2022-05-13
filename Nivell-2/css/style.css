@@ -69,28 +69,61 @@ header > .bottom-container > .header-main-box {
 /* Main area styles */
 main {
     margin-top: 10px;
-    padding: 10px;
-    background: yellow;
+    padding: 10px 0;
+    background: white;
 }
     
 main > .main-container {
-    background: grey;
+    background: rgb(214,214,214);
     padding: 10px;
 }
 
-main > .main-container > .main-box {
-    background: blue;
-    height: 10px; /* we only give this height because there is no content for the moment */
+main > .main-container > .main-article-box {
+    background: rgb(244,241,241);
     margin-bottom: 10px;
 }
 
+main > .main-container > .main-article-box > .article-image {
+    position: relative;
+}
+
+main > .main-container > .main-article-box > .article-image > img {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+main > .main-container > .main-article-box > .article-image > .image-date {
+    color: yellow;
+    opacity: 0.7;
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+}
+
+main > .main-container > .main-article-box > .article-title {
+    background-color: rgb(215,127,127);
+    color: white;
+    padding: 8px 5px 5px;
+    margin-top: 3px;
+}
+
+main > .main-container > .main-article-box > .article-text {
+    padding: 10px 5px 5px;
+    color: rgb(120,119,119);
+}
+
+main > .main-container > .main-article-box > .article-more {
+    padding: 10px 5px 5px;
+    color: rgb(156,156,156);
+}
+
 main > .main-container > .bottom-main-box {
-    background: steelblue;
-    height: 10px; /* we only give this height because there is no content for the moment */
+    text-align: center;
+    color: rgb(63,63,63);
 }
 
 main > .side-container {
-    background: red;
+    background: rgb(214,214,214);
     padding: 10px;
     margin-top: 10px;
     display: flex;
@@ -99,21 +132,22 @@ main > .side-container {
 }
 
 main > .side-container > .side-box {
-    background: khaki;
-    height: 10px; /* we only give this height because there is no content for the moment */
+    text-align: center;
+    padding: 10px;
 }
 
 /* Footer area styles*/
 footer {
-    background: black;
+    background: rgb(214,214,214);
     margin-top: 10px;
-    padding: 10px;
+    padding: 0 10px;
 }
 
 footer .footer-container {
-    background: gold;
-    height: 10px; /* we only give this height because there is no content for the moment */
-    
+    background: rgb(244,241,241);
+    padding: 10px;
+    text-align: center;
+    color: rgb(145,145,145);
 }
 
 
@@ -146,6 +180,10 @@ footer .footer-container {
         margin-bottom: 0;
     }
 
+    main > .main-container > .main-article-box > .article-text {
+        columns: 2;
+    }
+
     main > .main-container > .bottom-main-box {
         grid-column: 1 / span 2; /* the bottom box occupies 2 columns */
     }
@@ -156,12 +194,16 @@ footer .footer-container {
 @media only screen and (min-width: 768px) {
     /* Main area variations */
     main {
-        background: black; /* the main area changes in color */
+        background: white; /* the main area changes in color */
         display: flex;
     }
     
     main > .main-container {
         flex: 2;
+        /* the main container has a grid of 2 columns separated by 10px */
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
     }
 
     main > .main-container > .main-box {
